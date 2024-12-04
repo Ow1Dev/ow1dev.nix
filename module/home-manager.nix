@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
+    ../home/zsh.nix
     ../home/zoxide.nix
-    ../home/nushell.nix
     ../home/git.nix
     ../home/neovim.nix
     ../home/direnv.nix
