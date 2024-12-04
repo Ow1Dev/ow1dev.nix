@@ -1,10 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  programs.neovim = inputs.ow1dev-nvim.lib.mkHomeManager {
-    system = pkgs.system;
-    package = pkgs.neovim-unwrapped;
+{pkgs, ...}: {
+  programs.neovim = {
+    enable = true;
   };
 }
