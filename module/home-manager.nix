@@ -7,6 +7,7 @@
   imports = [
     ../home/zsh.nix
     ../home/zoxide.nix
+    ../home/tmux.nix
     ../home/git.nix
     ../home/neovim.nix
     ../home/direnv.nix
