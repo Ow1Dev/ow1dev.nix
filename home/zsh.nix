@@ -23,6 +23,11 @@
       bindkey -e
     '';
 
+    shellAliases = {
+      ls = "eza --color=always --group-directories-first --icons";
+      ll = "eza -la --icons --octal-permissions --group-directories-first";
+    };
+
     dotDir = ".config/zsh";
     history.path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
   };
