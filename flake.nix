@@ -29,6 +29,11 @@
             extraSpecialArgs = {inherit inputs outputs;};
             modules = [./module/home-manager.nix];
           };
+          "ow1@Ow1PC" = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
+            extraSpecialArgs = {inherit inputs outputs;};
+            modules = [./module/home-manager.nix];
+          };
         };
 
         overlays = import ./overlays {inherit inputs;};
