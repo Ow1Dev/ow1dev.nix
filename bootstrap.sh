@@ -5,8 +5,6 @@ if ! command -v nix &> /dev/null; then
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
 
-nix develop --command just switch
-
 DOTFILES_DIR="$HOME/.dotfiles"
 if [ -d "$DOTFILES_DIR" ]; then
   git -C "$DOTFILES_DIR" pull
@@ -15,6 +13,7 @@ else
 fi
 
 cd "$DOTFILES_DIR"
+nix develop --extra-experimental-features nix-command --command just switch
 just switch
 
 source ~/.bashrc || source ~/.zshrc || source ~/.profile
