@@ -28,7 +28,6 @@
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
             extraSpecialArgs = {
               inherit inputs outputs;
-              home.username = "vscode";
             };
             modules = [./module/home-manager.nix];
           };
@@ -36,7 +35,6 @@
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
             extraSpecialArgs = {
               inherit inputs outputs;
-              home.username = "vscode";
             };
             modules = [./module/home-manager.nix];
           };
@@ -44,9 +42,11 @@
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
             extraSpecialArgs = {
               inherit inputs outputs;
-              home.username = "vscode";
             };
-            modules = [ ./module/home-manager.nix ];
+            modules = [
+              ./module/devcontainer.nix
+              ./module/home-manager.nix
+            ];
           };
         };
 

@@ -14,7 +14,7 @@
   ];
 
   # add home-manager user settings here
-  home.username = config.home.username or "ow1";
+  home.username = lib.mkDefault "ow1";
   home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
 
   home.packages = with pkgs; [
