@@ -34,10 +34,11 @@
             extraSpecialArgs = {inherit inputs outputs;};
             modules = [./module/home-manager.nix];
           };
-          "vscode@vscode" = home-manager.lib.homeManagerConfiguration {
+          "vscode" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
             extraSpecialArgs = { inherit inputs outputs; };
             modules = [ ./module/home-manager.nix ];
+            home.username = "vscode";
           };
         };
 
