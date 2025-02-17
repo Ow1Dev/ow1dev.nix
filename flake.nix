@@ -26,19 +26,27 @@
         homeConfigurations = {
           "ow1@nestop" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = {inherit inputs outputs;};
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              home.username = "vscode";
+            };
             modules = [./module/home-manager.nix];
           };
           "ow1@Ow1PC" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = {inherit inputs outputs;};
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              home.username = "vscode";
+            };
             modules = [./module/home-manager.nix];
           };
           "vscode" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = { inherit inputs outputs; };
+            extraSpecialArgs = {
+              inherit inputs outputs;
+              home.username = "vscode";
+            };
             modules = [ ./module/home-manager.nix ];
-            home.username = "vscode";
           };
         };
 
