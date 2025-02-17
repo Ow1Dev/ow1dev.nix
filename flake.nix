@@ -49,6 +49,11 @@
         devShells = {
           default = mkShell {
             nativeBuildInputs = [just alejandra nixos-rebuild];
+
+            # Enable Nix experimental features automatically
+            shellHook = ''
+              export NIX_CONFIG="experimental-features = nix-command flakes"
+            '';
           };
         };
 
