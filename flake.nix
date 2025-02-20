@@ -22,8 +22,9 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       flake = let
         inherit (self) outputs;
-        inherit (nixpkgs) lib;
-
+        extendedLib = nixpkgs.lib.extend (self: super: {
+          custom = import ./lib { inherit (nixpkgs) lib; };
+        });
       in {
         homeConfigurations = {
           "ow1@nestop" = home-manager.lib.homeManagerConfiguration {
@@ -32,8 +33,7 @@
               inherit
                 inputs
                 outputs;
-              lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
-
+              lib = extendedLib;
             };
             modules = [./module/home-manager.nix];
           };
@@ -43,7 +43,7 @@
               inherit
                 inputs
                 outputs;
-              lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
+              lib = extendedLib;
             };
             modules = [./module/home-manager.nix];
           };
@@ -53,7 +53,7 @@
               inherit
                 inputs
                 outputs;
-              lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
+              lib = extendedLib;
             };
             modules = [
               ./module/devcontainer.nix
