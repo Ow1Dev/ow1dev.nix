@@ -14,6 +14,3 @@ fi
 
 cd "$DOTFILES_DIR"
 nix develop --extra-experimental-features "nix-command flakes" --command just switch
-just switch
-
-source ~/.bashrc || source ~/.zshrc || source ~/.profile
