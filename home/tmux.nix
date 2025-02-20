@@ -19,7 +19,7 @@
         extraConfig = "set -g @catppuccin_flavour 'mocha'";
       }
       {
-        plugin = tmuxplugins.vim-tmux-navigator;
+        plugin = tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };

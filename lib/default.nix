@@ -1,18 +1,24 @@
 { lib, ... }:
-
-let
-  # Helper function to get paths
-  getScanPaths = path: let
-    # Ensure we are not adding paths back to the root directory or looping over itself
-    filteredPaths = builtins.filter (p: p != path) (builtins.attrNames (lib.attrsets.filterAttrs (
-      path' : _type: (_type == "directory") || (
-        (path' != "default.nix") && (lib.strings.hasSuffix ".nix" path')
-      )
-    ) (builtins.readDir path)));
-  in builtins.map (f: path + "/${f}") filteredPaths;
-in
 {
+  # Scan the current directory (relative to where the Nix file is)
   relativeToRoot = lib.path.append ../.;
-  scanPaths = getScanPaths;
-}
+  scanPaths = path:
+    let
+      # Read the directory contents
+      files = builtins.readDir path;
 
+      # Filter to include only directories or .nix files, but avoid the current file
+      filteredFiles = builtins.attrNames (
+        lib.attrsets.filterAttrs (
+          path: _type:
+            (_type == "directory") # Include directories
+            || (
+              (path != "default.nix") # Ignore default.nix
+              && (lib.strings.hasSuffix ".nix" path) # Include .nix files
+            )
+        ) files
+      );
+
+      # Map the filtered files to full paths
+    in builtins.map (f: "${path}/${f}") filteredFiles;
+}

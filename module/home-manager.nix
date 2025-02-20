@@ -5,11 +5,11 @@
   ...
 }: {
   imports = [
+    ../home/nixvim
     ../home/zsh.nix
     ../home/zoxide.nix
     ../home/tmux.nix
     ../home/git.nix
-    ../home/nixvim
     ../home/direnv.nix
   ];
 

@@ -86,6 +86,23 @@
         mode = "n";
         options.desc = "TODO telescope";
       }
+
+      {
+        key = ">";
+        action = ">gv";
+        mode = "v";
+        options = {
+          silent = true;
+        };
+      }
+      {
+        key = "<";
+        action = "<gv";
+        mode = "v";
+        options = {
+          silent = true;
+        };
+      }
     ];
 
     plugins.which-key = {

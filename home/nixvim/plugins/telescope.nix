@@ -7,13 +7,23 @@
   config = lib.mkIf config.nixvim-config.plugins.telescope.enable {
     programs.nixvim = {
       plugins = {
-        telescope.enable = true;
+        telescope = {
+          enable = true;
+          settings = {
+            pickers = {
+              find_files = {
+                theme = "dropdown";
+                previewer = false;
+              };
+            };
+          };
+        };
       };
       keymaps = [
         # Telescope stuff
         {
-          key = "<Leader>ff";
-          action = "<cmd> Telescope fd <CR>";
+          key = "<C-p>";
+          action = "<cmd> Telescope find_files<CR>";
           mode = "n";
           options.desc = "Find files";
         }
