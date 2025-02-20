@@ -29,7 +29,7 @@
         homeConfigurations = {
           "ow1@nestop" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = {
+            specialArgs = {
               inherit
                 inputs
                 outputs;
@@ -39,7 +39,7 @@
           };
           "ow1@Ow1PC" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = {
+            specialArgs = {
               inherit
                 inputs
                 outputs;
@@ -49,7 +49,7 @@
           };
           "vscode" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            extraSpecialArgs = {
+            specialArgs = {
               inherit
                 inputs
                 outputs;
