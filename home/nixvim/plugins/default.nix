@@ -1,6 +1,6 @@
 { customlib, lib, ... }:
 {
-  scanDirs = customlib.scanPaths (lib.path.normalize ./.);
+  imports = customlib.scanPaths (lib.path.normalize ./.);
 
   #   config = lib.mkIf config.nixvim-config.enable {  # don't want to gif on options one level out of here yet
   config = {
