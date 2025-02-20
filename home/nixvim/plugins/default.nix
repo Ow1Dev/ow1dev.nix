@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ customlib, ... }:
 {
-  imports = lib.custom.scanPaths ./.;
+  imports = customlib.scanPaths ./.;
 
   #   config = lib.mkIf config.nixvim-config.enable {  # don't want to gif on options one level out of here yet
   config = {

@@ -22,38 +22,27 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       flake = let
         inherit (self) outputs;
-        extendedLib = nixpkgs.lib.extend (self: super: {
-          custom = import ./lib { inherit (nixpkgs) lib; };
-        });
+        customLib = import ./lib/default.nix { lib = nixpkgs.lib; }; # Import custom lib
       in {
         homeConfigurations = {
           "ow1@nestop" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            specialArgs = {
-              inherit
-                inputs
-                outputs;
-              lib = extendedLib;
+            extraSpecialArgs = {
+              inherit inputs outputs customLib;
             };
             modules = [./module/home-manager.nix];
           };
           "ow1@Ow1PC" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            specialArgs = {
-              inherit
-                inputs
-                outputs;
-              lib = extendedLib;
+            extraSpecialArgs = {
+              inherit inputs outputs customLib;
             };
             modules = [./module/home-manager.nix];
           };
           "vscode" = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
-            specialArgs = {
-              inherit
-                inputs
-                outputs;
-              lib = extendedLib;
+            extraSpecialArgs = {
+              inherit inputs outputs customLib;
             };
             modules = [
               ./module/devcontainer.nix
