@@ -9,7 +9,7 @@
     ../home/zoxide.nix
     ../home/tmux.nix
     ../home/git.nix
-    ../home/neovim.nix
+    ../home/nixvim
     ../home/direnv.nix
   ];
 
