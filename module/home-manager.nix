@@ -21,6 +21,7 @@
     nodejs
     ripgrep
     libgcc
+    postgresql
   ];
 
   home.stateVersion = "24.11";

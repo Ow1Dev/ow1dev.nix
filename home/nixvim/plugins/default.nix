@@ -59,5 +59,6 @@
     nixvim-config.plugins.toggleterm.enable = lib.mkDefault true;
     nixvim-config.plugins.tmux-navigator.enable = lib.mkDefault true;
     nixvim-config.plugins.wrapping.enable = lib.mkDefault true;
+    nixvim-config.plugins.vim-dadbod.enable = lib.mkDefault true;
   };
 }

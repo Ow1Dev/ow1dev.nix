@@ -60,6 +60,19 @@
             "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })";
           };
         };
+        filetype = {
+          sql = {
+            sources = [
+              {
+                name = "vim-dadbod-completion";
+              }
+              {
+                name = "buffer";
+                keyword_length = 2;
+              }
+            ];
+          };
+        };
       };
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
