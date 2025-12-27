@@ -3,6 +3,7 @@
 {
   imports = [
      ./programs/jujutsu.nix
+     ./programs/zsh.nix
 
      inputs.ow1nvim.homeManagerModules.default
   ];
@@ -17,7 +18,16 @@
   ];
 
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    TERM = "xterm-256color";
+  };
+
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if [ -z "$ZSH_VERSION" ] && [ -x "$(command -v zsh)" ]; then
+        exec zsh
+      fi
+    '';
   };
 
   # Let Home Manager install and manage itself.
