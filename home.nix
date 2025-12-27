@@ -4,6 +4,7 @@
   imports = [
      ./programs/jujutsu.nix
      ./programs/zsh.nix
+     ./programs/nix.nix
 
      inputs.ow1nvim.homeManagerModules.default
   ];
