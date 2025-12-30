@@ -1,9 +1,10 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
      ./programs/jujutsu.nix
      ./programs/zsh.nix
+     ./programs/zoxide.nix
      ./programs/nix.nix
 
      inputs.ow1nvim.homeManagerModules.default
@@ -15,7 +16,8 @@
   home.homeDirectory = "/var/home/ow1";
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  home.packages = [
+  home.packages = with pkgs; [
+    gh
   ];
 
   home.sessionVariables = {
