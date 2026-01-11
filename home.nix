@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     gh
     jq
+    nnn
   ];
 
   home.sessionVariables = {
