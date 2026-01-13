@@ -28,6 +28,7 @@
     '';
     shellAliases = {
       ll = "n";
+      wt = "git worktree";
     };
   };
 
