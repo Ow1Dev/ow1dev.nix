@@ -29,6 +29,7 @@
     shellAliases = {
       ll = "n";
       wt = "git worktree";
+      v = "$EDITOR";
     };
   };
 
