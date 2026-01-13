@@ -2,7 +2,6 @@
 
 {
   imports = [
-     ./programs/jujutsu.nix
      ./programs/git.nix
      ./programs/zsh.nix
      ./programs/zoxide.nix
